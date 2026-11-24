@@ -1,0 +1,104 @@
+/* Modul pembelajaran (PDF) dan form password */
+.mod {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--bg2);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.mod > button {
+  all: unset;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 18px 22px;
+  cursor: pointer;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.mod > button:focus-visible {
+  outline: 2px solid var(--ac2);
+  outline-offset: -2px;
+}
+.mod h3 {
+  font-size: 20px;
+}
+.mod small {
+  color: var(--mut);
+  display: block;
+  font-size: 14.5px;
+}
+.bar {
+  flex: 0 0 90px;
+  height: 6px;
+  background: var(--line);
+  border-radius: 9px;
+  overflow: hidden;
+}
+.bar i {
+  display: block;
+  height: 100%;
+  background: var(--ac2);
+  transition: width 0.5s;
+}
+.body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s;
+}
+.mod.open .body {
+  grid-template-rows: 1fr;
+}
+.body > div {
+  overflow: hidden;
+}
+.body ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 22px 18px;
+}
+.body label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 7px 0;
+  cursor: pointer;
+}
+.body input {
+  accent-color: var(--ac2);
+  width: 18px;
+  height: 18px;
+}
+.pdf {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pdf p {
+  margin: 0;
+}
+.pi {
+  width: 40px;
+  height: 40px;
+}
+.pdf .btn {
+  margin-top: 8px;
+  align-self: flex-start;
+  color: #fff;
+}
+.pdf .btn:not(.p) {
+  color: #141c3a;
+  border-color: #d9e0f7;
+}
+.pwb {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+.pwb input {
+  border: 1px solid #d9e0f7;
+}
+.pdf .btn.p:disabled {
+  opacity: 0.55;
+  cursor: default;
+}

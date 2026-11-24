@@ -6,11 +6,13 @@ Built with React 18 (UMD build) and [htm](https://github.com/developit/htm), so 
 
 ## Features
 
-- **Sections:** About (hero with photo), Skills, Projects, Experience, Education, Contact, Learning Modules.
+- **Sections:** Home (greeting, short info, summary, Resume button), Skills, Projects, Experience, Education, Contact, Learning Modules.
 - **Languages:** ID / EN / 日本語 switcher. The choice is remembered in `localStorage`.
+- **Layout switch:** the **left sidebar is the default** (profile card, navigation with active-section highlight). A button next to the language switch toggles to a top bar (screens wider than 900px). On smaller screens a compact top bar with a dropdown menu is used. The choice is remembered in `localStorage` (key `layout`). Styles are in `css/sidebar.css`.
+- **Skills filter:** buttons (All, Backend, Frontend, Database, ...) show only the languages and tools of that category.
 - **Visuals:** animated starfield and nebula, shooting stars, rotating photo ring, skills ticker, 3D-tilt project cards, and a UI preview layer behind each project card.
 - **Icons:** every skill and every technology tag has an inline SVG icon.
-- **Projects:** each card has a link icon to the project (see "Edit your content").
+- **Projects:** each card has a “View project” button, and the first card shows a “Featured” badge (max 4 tags per card, extra tags show as “+N”) (see "Edit your content").
 - **Learning modules:** four PDF cards with a password prompt before download.
 - **Accessibility:** keyboard focus styles, `aria-label`s, and `prefers-reduced-motion` support.
 
@@ -20,6 +22,7 @@ Built with React 18 (UMD build) and [htm](https://github.com/developit/htm), so 
 portfolio-joi/
 ├── index.html                # loads the CSS and JS files below
 ├── css/                      # one file per area (base, nav, hero, cards, ...)
+│   ├── sidebar.css           # left sidebar layout
 │   └── theme.css             # light-card theme, must load last
 ├── js/
 │   ├── config.js             # React + htm setup
@@ -72,7 +75,7 @@ All text lives in `js/data/lang-id.js`, `lang-en.js` and `lang-ja.js`. Other con
 | About text, roles, project and experience text | `js/data/lang-*.js` |
 | Project technology tags | `TECH` in `js/data/projects.js` |
 | Project link targets | `URLS` in `js/data/projects.js` (one per project, same order as the cards) |
-| Skills list | `SK` in `js/data/skills.js` |
+| Skills list and filter categories | `SK` and `SK_GROUPS` in `js/data/skills.js`; button labels in `skcat` of `js/data/lang-*.js` |
 | Skill and tech icons | `MAP`, `IC`, `COL` in `js/data/icons.js` |
 | Certifications | `CERTS` in `js/data/certs.js` |
 | Company and campus logos | `LG` in `js/data/logos.js` (color and initials). To use a real logo, edit `js/components/Logo.js` and use an `<img>` |
@@ -123,3 +126,19 @@ The page is already split into one file per component (`js/components/`, `js/sec
 ## Credits
 
 Designed and written for Joi Diego Napitupulu. Sample module PDFs are written in Indonesian and can be replaced with your own material.
+
+## Profile settings (first section)
+
+Edit `PROFILE` in `js/config.js`: name, location, the **Open to work** badge, the verified check mark, and the Resume button.
+Put your CV at `assets/resume.pdf` (or change the path). Set `resume: ""` to hide the button.
+
+## Achievements section
+
+Certificates live in `js/data/certs.js` (title, issuer, tags, date `YYYY-MM`, optional `id` and `img`).
+Put certificate images in `assets/certs/` and set `img: "assets/certs/name.jpg"`. Without `img`, a generated cover is shown.
+
+## Themes
+
+Three icon buttons next to the language switch: sun = Light-gold, moon = Dark (default), leaf = Green-brown.
+The choice is saved in `localStorage` (key `theme`). Colors are CSS variables per `:root[data-theme="..."]` in `css/base.css`; edit them there.
+In side mode the page is a centered two-column shell (sticky sidebar + content, max width 1144px).

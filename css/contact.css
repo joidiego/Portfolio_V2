@@ -1,0 +1,25 @@
+/* Form kontak dan input */
+form {
+  display: grid;
+  gap: 12px;
+  max-width: 520px;
+}
+input,
+textarea {
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--ink);
+  padding: 12px 14px;
+  font: inherit;
+}
+input,
+textarea {
+  background: #fff;
+  color: #141c3a;
+  border-color: #fff;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #6b77a3;
+}

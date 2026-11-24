@@ -1,0 +1,31 @@
+/* Tema kartu terang di atas latar galaxy (HARUS dimuat paling akhir) */
+.card,
+.mod,
+.tl .it {
+  background: #fff;
+  color: #141c3a;
+  --ink: #141c3a;
+  --mut: #4a5683;
+  --line: #d9e0f7;
+  --ac: #3c55e0;
+  --ac2: #a85f00;
+}
+.card {
+  box-shadow: 0 10px 34px var(--card-sh);
+}
+.tl .it {
+  border-radius: 16px;
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 34px var(--card-sh);
+}
+.tl .it::before {
+  top: 24px;
+  background: var(--ac2);
+}
+.mod {
+  border-color: #fff;
+}
+.tl {
+  border-left-color: var(--line);
+}

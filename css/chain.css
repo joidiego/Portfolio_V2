@@ -1,0 +1,57 @@
+/* Blok 'chain' (saat ini tidak dipakai di markup) */
+.chain {
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+  padding: 6px 0;
+}
+.blk {
+  flex: 0 0 auto;
+  width: min(210px, 56vw);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: var(--bg2);
+  font:
+    12.5px/1.5 ui-monospace,
+    Menlo,
+    monospace;
+  position: relative;
+  margin-right: 26px;
+  animation: in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.blk::after {
+  content: "";
+  position: absolute;
+  right: -27px;
+  top: 50%;
+  width: 26px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ac), var(--ac2));
+  background-size: 200% 100%;
+  animation: flow 1.2s linear infinite;
+}
+.blk b {
+  color: var(--ac2);
+  font-weight: 500;
+}
+.blk span {
+  color: var(--mut);
+  word-break: break-all;
+}
+@keyframes in {
+  from {
+    opacity: 0;
+    transform: translateX(40px) scale(0.94);
+  }
+}
+@keyframes flow {
+  to {
+    background-position: -200% 0;
+  }
+}
+.cap {
+  font-size: 14px;
+  color: var(--mut);
+  margin-top: 10px;
+}

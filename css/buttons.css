@@ -1,0 +1,31 @@
+/* Tombol (.btn) */
+.btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 26px 0 44px;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  font-weight: 500;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14.5px;
+  transition:
+    transform 0.25s,
+    background 0.25s;
+}
+.btn.p {
+  background: var(--ac);
+  border-color: var(--ac);
+  color: #fff;
+}
+.btn:hover {
+  transform: translateY(-3px);
+}

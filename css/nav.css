@@ -1,0 +1,201 @@
+/* Navigasi: topbar (desktop, mode "top") dan menu dropdown (mobile). Mode sidebar ada di sidebar.css */
+:root {
+  --nav-h: 68px;
+  --sbw: 296px;
+}
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  height: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
+  padding: env(safe-area-inset-top, 0px) 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  font:
+    800 20px "Bricolage Grotesque",
+    sans-serif;
+  text-decoration: none;
+}
+.profile,
+.copy {
+  display: none;
+}
+.links {
+  order: 1;
+  margin-left: auto;
+  display: flex;
+  gap: 2px;
+}
+.links a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--mut);
+  font-size: 14.5px;
+  white-space: nowrap;
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+.links a svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+.links a .arr {
+  margin-left: auto;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+}
+.links a:hover {
+  background: var(--glass2);
+  color: var(--ink);
+}
+.links a[aria-current="true"] {
+  background: var(--glass2);
+  color: var(--head);
+}
+.links a[aria-current="true"] .arr {
+  opacity: 0.7;
+}
+.tools {
+  order: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hire {
+  order: 3;
+  padding: 6px 16px;
+  font-size: 14px;
+  border-radius: 99px;
+  flex: none;
+}
+.seg {
+  display: flex;
+  padding: 3px;
+  gap: 2px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: var(--glass);
+}
+.seg button {
+  border: 0;
+  border-radius: 99px;
+  background: none;
+  color: var(--mut);
+  padding: 6px 10px;
+  font: 600 12px/1 "IBM Plex Sans", "Noto Sans JP", sans-serif;
+  cursor: pointer;
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+.seg button[aria-pressed="true"] {
+  background: var(--gold);
+  color: var(--on-gold);
+}
+.tbtn {
+  width: 36px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--glass);
+  color: var(--mut);
+  cursor: pointer;
+  transition:
+    color 0.25s,
+    border-color 0.25s;
+}
+.tbtn:hover {
+  color: var(--ink);
+  border-color: var(--ac);
+}
+.tbtn svg {
+  width: 18px;
+  height: 18px;
+}
+.menu {
+  display: none;
+}
+@media (min-width: 901px) {
+  html[data-layout="top"] .links a svg {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .brand {
+    margin-right: auto;
+  }
+  .menu {
+    display: grid;
+  }
+  .tbtn.layout,
+  .hire {
+    display: none;
+  }
+  .links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 16px 16px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .open .links {
+    display: flex;
+  }
+  .links a {
+    font-size: 16px;
+    padding: 11px 14px;
+  }
+}
+@media (max-width: 420px) {
+  .site-nav {
+    padding-inline: 12px;
+    gap: 8px;
+  }
+  .seg button {
+    padding: 6px 9px;
+  }
+}
+
+/* Pemilih tema: tiga tombol ikon (terang-emas, gelap, hijau-coklat) */
+.themes button {
+  width: 30px;
+  height: 28px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+.themes svg {
+  width: 16px;
+  height: 16px;
+}
+@media (max-width: 420px) {
+  .themes button {
+    width: 26px;
+  }
+  .site-nav .tools {
+    gap: 6px;
+  }
+}

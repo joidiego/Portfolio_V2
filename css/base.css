@@ -1,0 +1,124 @@
+/* Reset, variabel warna + 3 tema (dark, light, green), tipografi dasar */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #050a24;
+  --bg2: #0b1233;
+  --ink: #eaf0ff;
+  --mut: #b4c2f5;
+  --line: rgba(150, 180, 255, 0.3);
+  --rule: rgba(150, 180, 255, 0.18);
+  --ac: #8aa6ff;
+  --ac2: #ffc86b; /* emas untuk teks */
+  --gold: #ffc86b; /* emas untuk isian tombol */
+  --on-gold: #1a1200;
+  --head: #ffffff;
+  --sum: #dbe4ff;
+  --glass: rgba(10, 16, 48, 0.6);
+  --glass2: rgba(160, 185, 255, 0.14);
+  --neb1: rgba(96, 60, 220, 0.55);
+  --neb2: rgba(20, 110, 230, 0.5);
+  --neb3: rgba(150, 50, 200, 0.4);
+  --star1: #cfe0ff;
+  --star2: #ffd9a0;
+  --gx-op: 1;
+  --card-sh: rgba(10, 20, 90, 0.35);
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #fbf8ef;
+  --bg2: #ffffff;
+  --ink: #1c2030;
+  --mut: #5b6074;
+  --line: rgba(120, 90, 20, 0.25);
+  --rule: rgba(120, 90, 20, 0.18);
+  --ac: #b7791f;
+  --ac2: #9a6209;
+  --gold: #f2b632;
+  --on-gold: #1a1200;
+  --head: #14161f;
+  --sum: #343a4f;
+  --glass: rgba(255, 255, 255, 0.82);
+  --glass2: rgba(201, 138, 11, 0.14);
+  --neb1: rgba(255, 200, 107, 0.45);
+  --neb2: rgba(255, 235, 180, 0.55);
+  --neb3: rgba(255, 170, 90, 0.3);
+  --gx-op: 0;
+  --card-sh: rgba(120, 90, 20, 0.18);
+}
+:root[data-theme="green"] {
+  color-scheme: dark;
+  --bg: #0e1a12;
+  --bg2: #14261a;
+  --ink: #eef3e6;
+  --mut: #b5c3a6;
+  --line: rgba(170, 195, 130, 0.3);
+  --rule: rgba(170, 195, 130, 0.2);
+  --ac: #8fc46a;
+  --ac2: #e0a869;
+  --gold: #d9a066;
+  --on-gold: #1c1004;
+  --head: #ffffff;
+  --sum: #dfe8d2;
+  --glass: rgba(14, 30, 20, 0.62);
+  --glass2: rgba(150, 200, 110, 0.15);
+  --neb1: rgba(60, 140, 70, 0.5);
+  --neb2: rgba(140, 90, 40, 0.45);
+  --neb3: rgba(90, 160, 90, 0.35);
+  --star1: #e6f0cf;
+  --star2: #f0d2a0;
+  --card-sh: rgba(0, 0, 0, 0.35);
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h, 68px) + env(safe-area-inset-top, 0px) + 16px);
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  position: relative;
+  color: var(--ink);
+  font:
+    400 15px/1.65 "IBM Plex Sans",
+    "Noto Sans JP",
+    system-ui,
+    sans-serif;
+  overflow-x: hidden;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  transition:
+    background-color 0.4s,
+    color 0.4s;
+}
+h1,
+h2,
+h3 {
+  font-family: "Bricolage Grotesque", "Noto Sans JP", system-ui, sans-serif;
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+a {
+  color: inherit;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--ac2);
+  outline-offset: 2px;
+}
+.date {
+  font-size: 13px;
+  color: var(--ac2);
+  margin-bottom: 6px;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto;
+  }
+}

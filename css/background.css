@@ -1,0 +1,39 @@
+/* Latar galaxy: nebula dan canvas bintang */
+.neb {
+  position: fixed;
+  inset: -25%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 45% 40% at 20% 20%,
+      var(--neb1),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 40% 40% at 80% 35%,
+      var(--neb2),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 50% 90%,
+      var(--neb3),
+      transparent 70%
+    );
+  animation: drift 38s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  to {
+    transform: translate(4%, -3%) rotate(8deg) scale(1.12);
+  }
+}
+.gx {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: var(--gx-op);
+  transition: opacity 0.4s;
+}

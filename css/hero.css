@@ -1,0 +1,125 @@
+/* Bagian pertama (Hero): sapaan, info singkat, ringkasan, tombol Resume */
+.hero {
+  padding: 44px 0 36px;
+}
+.hero-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+.hero-id {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+}
+.hero h1 {
+  font-size: clamp(26px, 3.4vw, 32px);
+  font-weight: 700;
+  color: var(--head);
+}
+.meta {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 26px;
+  margin: 10px 0 0;
+  padding: 0;
+  color: var(--mut);
+  font-size: 14.5px;
+}
+.meta li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.meta li::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--mut);
+  flex: none;
+}
+.meta svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  color: var(--ac2);
+}
+.hero-role {
+  margin: 8px 0 0;
+  color: var(--ac2);
+  font-size: 14px;
+}
+.btn-res {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--glass2);
+  color: var(--head);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition:
+    transform 0.25s,
+    border-color 0.25s,
+    background 0.25s;
+}
+.btn-res svg {
+  width: 15px;
+  height: 15px;
+}
+.btn-res:hover {
+  transform: translateY(-2px);
+  border-color: var(--ac);
+  background: var(--glass2);
+}
+.summary {
+  margin-top: 20px;
+  max-width: 78ch;
+}
+.summary p {
+  margin: 0 0 14px;
+  color: var(--sum);
+  line-height: 1.85;
+}
+/* Foto bulat dengan ring gradien (dipakai di sidebar dan hero) */
+.ph {
+  width: 84px;
+  aspect-ratio: 1;
+  flex: none;
+  padding: 3px;
+  border-radius: 50%;
+  background: conic-gradient(#8aa6ff, #b36bff, #ffc86b, #8aa6ff);
+  box-shadow: 0 0 36px rgba(120, 150, 255, 0.35);
+}
+.ph img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+  border-radius: 50%;
+  border: 3px solid var(--bg);
+}
+@media (max-width: 700px) {
+  .hero {
+    padding-top: 36px;
+  }
+  .hero-top {
+    flex-direction: column;
+  }
+  .hero-id {
+    align-items: flex-start;
+  }
+  .meta {
+    gap: 4px 18px;
+    font-size: 15px;
+  }
+}

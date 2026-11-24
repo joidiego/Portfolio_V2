@@ -1,0 +1,45 @@
+/* Layout halaman: shell (sidebar + main), section, judul, transisi ganti bahasa */
+.shell {
+  position: relative;
+  z-index: 1;
+}
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: calc(var(--nav-h, 68px) + env(safe-area-inset-top, 0px)) 24px 0;
+}
+section {
+  padding: 36px 0 34px;
+}
+main > section + section {
+  border-top: 1px solid var(--rule);
+}
+h2 {
+  font-size: 20px;
+  margin-bottom: 18px;
+}
+.lang-in {
+  animation: fade 0.5s both;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(8px);
+  }
+}
+.skip {
+  position: fixed;
+  left: 12px;
+  top: -80px;
+  z-index: 100;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--gold);
+  color: var(--on-gold);
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip:focus {
+  top: 12px;
+}

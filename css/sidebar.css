@@ -1,0 +1,135 @@
+/* Mode sidebar: tata letak 2 kolom di tengah (sidebar sticky + konten), layar > 900px */
+@media (min-width: 901px) {
+  html[data-layout="side"] {
+    --nav-h: 0px;
+  }
+  [data-layout="side"] .shell {
+    display: grid;
+    grid-template-columns: var(--sbw) minmax(0, 1fr);
+    column-gap: 28px;
+    max-width: 1144px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  [data-layout="side"] main {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+  [data-layout="side"] .site-nav {
+    position: sticky;
+    top: 0;
+    left: auto;
+    right: auto;
+    align-self: start;
+    height: 100vh;
+    height: 100dvh;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 40px 0 20px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    background: none;
+    backdrop-filter: none;
+    border-bottom: 0;
+  }
+  [data-layout="side"] .brand,
+  [data-layout="side"] .hire,
+  [data-layout="side"] .hero-ph,
+  [data-layout="side"] .hero-role {
+    display: none;
+  }
+  [data-layout="side"] .profile {
+    order: 0;
+    display: flex;
+  }
+  [data-layout="side"] .tools {
+    order: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  [data-layout="side"] .links {
+    order: 2;
+    margin: 0;
+    flex-direction: column;
+    gap: 4px;
+  }
+  [data-layout="side"] .links a {
+    font-size: 14.5px;
+    padding: 9px 14px;
+  }
+  [data-layout="side"] .copy {
+    order: 3;
+    display: block;
+    margin: 6px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--mut);
+  }
+}
+/* Kartu profil di sidebar */
+.profile {
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-align: center;
+}
+.profile .ph {
+  width: 100px;
+}
+.pname {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 8px 0 0;
+  font:
+    700 19px/1.2 "Bricolage Grotesque",
+    sans-serif;
+}
+.vf {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+.profile .role {
+  min-height: 1.5em;
+  font-size: 13px;
+  color: var(--mut);
+}
+.otw {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 12px;
+  border: 1px solid var(--ac2);
+  border-radius: 99px;
+  background: var(--glass2);
+  color: var(--ac2);
+  font:
+    700 10px/1 "IBM Plex Sans",
+    "Noto Sans JP",
+    sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.otw i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
